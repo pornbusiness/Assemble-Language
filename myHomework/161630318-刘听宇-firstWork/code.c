@@ -10,7 +10,7 @@ int main() {
 	int varx, vary, gtr;
 	unsigned int abv;
 	int sub_result;
-	printf("part_1\n");
+	printf("part_1:33\34题(合为一题)\n");
 	printf("input:");
 	scanf("%d %d", &varx, &vary);
 
@@ -41,7 +41,7 @@ int main() {
 	printf("有符号数较大值：%d\n", gtr);
 	printf("无符号数较大值：%u\n", abv);
 
-	printf("part_2\n");
+	printf("part_2：35题\n");
 	printf("input:");
 	getchar();
 	for (int i = 0; i < 4; i++) {
@@ -63,7 +63,7 @@ int main() {
 	printf("word_2 = %04XH\n", word_2);
 	printf("dword = %08XH\n", dword_);
 
-	printf("part_3\n");
+	printf("part_3：36题\n");
 	printf("input:");
 	scanf("%s", char_input);
 	int len;
