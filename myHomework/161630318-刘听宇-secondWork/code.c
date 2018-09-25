@@ -1,5 +1,8 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<string.h>
+
+#pragma warning(disable:4996)
 
 int main() {
 	//--------------------------------------------------------------------------------------
@@ -132,8 +135,162 @@ int main() {
 	}
 
 	printf("38\n");
-	printf("|sum_odd:%d - sum_even:%d| = %d\n", sum_odd, sum_even, sub_result);
+	printf("|sum_odd:%d - sum_even:%d| = %d\n\n", sum_odd, sum_even, sub_result);
 
+	//---------------------------------------------------------------------------------
+	unsigned input_1, count_0_bit, count_1_bit;
+	printf("--------part2------------------\n\n");
+	printf("35\n");
+	printf("please input a unsigned data:");
+	scanf_s("%u", &input_1);
+
+	_asm {
+			mov		eax, input_1
+			xor		ecx, ecx
+			push	0
+			push	0
+		TL1lty035:
+			test	eax, 80000000H
+			js		TN1lty035
+			inc		[esp]
+			jmp		TN2lty035
+		TN1lty035:
+			inc		[esp+4]
+		TN2lty035:
+			shl		eax, 1
+			inc		ecx
+			cmp		ecx, 31
+			jbe		TL1lty035
+			;
+			mov		eax, [esp]
+			mov		count_0_bit, eax
+			mov		eax, [esp+4]
+			mov		count_1_bit, eax
+			add		esp, 8
+	}
+
+	printf("num of 0 bit = %d\n", count_0_bit);
+	printf("num of 1 bit = %d\n", count_1_bit);
+
+	char charac1 = 0, charac2 = 0;
+	short data_merge_from_2_character;
+	printf("36.\n");
+	printf("please input 2 character:");
+	getchar();
+	scanf("%c%c", &charac1, &charac2);
+
+	_asm {
+			xor		eax, eax
+			mov		al, charac1
+			mov		ah, charac2
+			mov		data_merge_from_2_character, ax
+	}
+
+	printf("data merged from character %02XH and charcter %02XH = %04XH\n", charac1, charac2, data_merge_from_2_character);
+
+	int int_input_37_1, int_input_37_2;
+	printf("37.\n");
+	printf("please input 2 int number:");
+	scanf("%x%x", &int_input_37_1, &int_input_37_2);
+
+	_asm {
+			mov		eax, int_input_37_1
+			cmp		eax, 0
+			jge		TN1lty037
+			neg		eax
+		TN1lty037:
+			mov		edx, int_input_37_2
+			cmp		edx, 0
+			jge		TN2lty037
+			neg		edx
+		TN2lty037:
+			mov		cx, dx
+			mov		dx, ax
+			mov		ax, cx
+			;
+			mov		int_input_37_1, edx
+			mov		int_input_37_2, eax
+	}
+
+	printf("after exchange:%08XH, %08XH\n", int_input_37_1, int_input_37_2);
+
+
+	char string_1[100];
+	int num_of_elphabat, num_of_number, num_of_other_type;
+	printf("38.\n");
+	printf("please input a string:");
+	scanf("%s", string_1);
+	int num_of_char = strlen(string_1);
+
+	_asm {
+			lea		eax, string_1
+			mov		ebx, num_of_char
+			xor		ecx, ecx
+			push	0
+			push	0
+			push	0
+			;
+		TL1lty038:
+			mov		dl, [eax+ecx]
+			cmp		dl, 31H
+			jb		TN1lty038
+			cmp		dl, 39H
+			jbe		TN3lty038
+			cmp		dl, 41H
+			jb		TN1lty038
+			cmp		dl, 5aH
+			jbe		TN2lty038
+			cmp		dl, 61H
+			jb		TN1lty038
+			cmp		dl, 7AH
+			jbe		TN2lty038
+		TN1lty038:
+			inc		[esp]
+			jmp		TN4lty038
+		TN2lty038:
+			inc		[esp+4]
+			jmp		TN4lty038
+		TN3lty038:
+			inc		[esp+8]
+		TN4lty038:
+			inc		ecx
+			cmp		ecx, ebx
+			jb		TL1lty038
+			;
+			mov		eax, [esp]
+			mov		num_of_other_type, eax
+			mov		eax, [esp+4]
+			mov		num_of_elphabat, eax
+			mov		eax, [esp+8]
+			mov		num_of_number, eax
+			add		esp, 12
+	}
+
+	printf("the num of english elphabat = %d\n", num_of_elphabat);
+	printf("the num of number = %d\n", num_of_number);
+	printf("the num of other type of character = %d\n", num_of_other_type);
+
+	_asm {
+			lea		eax, string_1
+			mov		ebx, num_of_char
+			xor		esi, esi
+			mov		edx, ebx
+			dec		edx
+		TL1lty039:
+			movzx	cl, [eax+esi]
+			movzx	bl, [eax+edx]
+			;
+			mov		[eax+esi], bl
+			mov		[eax+edx], cl
+			;
+			inc		esi
+			dec		edx
+			cmp		esi, edx
+			jb		TL1lty039
+	}
+
+	printf("39.\n");
+	printf("the reversed string is:%s\n", string_1);
 
 	system("pause");
 	return 0;
