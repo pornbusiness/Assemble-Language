@@ -1,4 +1,6 @@
 ﻿  code.c
-d:\github-repository\assemble-language\myhomework\161630318-刘听宇-secondwork\code.c(280): warning C4409: 非法的指令大小
-d:\github-repository\assemble-language\myhomework\161630318-刘听宇-secondwork\code.c(281): warning C4409: 非法的指令大小
+d:\github-repository\assemble-language\myhomework\161630318-刘听宇-secondwork\code.c(181): warning C4477: “scanf”: 格式字符串“%d”需要类型“int *”的参数，但可变参数 1 拥有了类型“char *”
+  d:\github-repository\assemble-language\myhomework\161630318-刘听宇-secondwork\code.c(181): note: 请考虑在格式字符串中使用“%hhd”
+d:\github-repository\assemble-language\myhomework\161630318-刘听宇-secondwork\code.c(181): warning C4477: “scanf”: 格式字符串“%d”需要类型“int *”的参数，但可变参数 2 拥有了类型“char *”
+  d:\github-repository\assemble-language\myhomework\161630318-刘听宇-secondwork\code.c(181): note: 请考虑在格式字符串中使用“%hhd”
   161630318-刘听宇-secondWork.vcxproj -> D:\Github-repository\Assemble-Language\myHomework\161630318-刘听宇-secondWork\Debug\161630318-刘听宇-secondWork.exe

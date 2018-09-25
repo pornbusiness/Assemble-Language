@@ -6,8 +6,9 @@
 
 int main() {
 	//--------------------------------------------------------------------------------------
-	char buffx[11] = { 1,1,1,1,1,1,1,128,1,1 };
+	//char buffx[11] = { 1,1,1,1,1,1,1,128,1,1 };
 	char buffy[21] = { 1,2,3,128,5,6,7,128,9,10,11,128,13,14,15,128,17,128,19,20 };
+	char buffx[21] = { 255,255,255,255,255,255,255,255,255,255 };
 	int num_pos, num_neg, result_s, result_u;
 	_asm{
 			lea		eax, buffx
@@ -177,16 +178,45 @@ int main() {
 	printf("36.\n");
 	printf("please input 2 character:");
 	getchar();
-	scanf("%c%c", &charac1, &charac2);
+	scanf("%d%d", &charac1, &charac2);
 
 	_asm {
-			xor		eax, eax
-			mov		al, charac1
-			mov		ah, charac2
-			mov		data_merge_from_2_character, ax
+			xor		edx, edx
+			movzx	eax, charac1
+			movzx	ebx, charac2
+			push	eax
+			push	ebx
+			xor		ebx, ebx
+		TL1lty036:
+		    test	edx, 1
+			jnz		TN1lty036
+			mov		eax, [esp]
+			shr		[esp], 1
+			jmp		TN2lty036
+		TN1lty036:
+			mov		eax, [esp+4]
+			shr		[esp+4], 1
+		TN2lty036:
+			and		eax, 1
+			xor		esi, esi
+		TL2lty036:
+			cmp		esi, edx
+			jb		TN3lty036
+			jmp		TN4lty036
+		TN3lty036:
+			shl		eax, 1
+			inc		esi
+			jmp		TL2lty036
+		TN4lty036:
+			or		ebx, eax
+			inc		edx
+			cmp		edx, 15
+			jbe		TL1lty036
+			mov		data_merge_from_2_character, bx
+			add		esp, 8
 	}
 
-	printf("data merged from character %02XH and charcter %02XH = %04XH\n", charac1, charac2, data_merge_from_2_character);
+	printf("data merged from character %XH and charcter %XH = %04XH\n", 0xff&charac1, 0xff&charac2, 0xffff&data_merge_from_2_character);
 
 	int int_input_37_1, int_input_37_2;
 	printf("37.\n");
@@ -277,8 +307,8 @@ int main() {
 			mov		edx, ebx
 			dec		edx
 		TL1lty039:
-			movzx	cl, [eax+esi]
-			movzx	bl, [eax+edx]
+			mov		cl, [eax+esi]
+			mov		bl, [eax+edx]
 			;
 			mov		[eax+esi], bl
 			mov		[eax+edx], cl
