@@ -42,7 +42,7 @@ int main() {
 			mov		result_u, eax
 			add		esp, 16
 	}
-	printf("37&39\n");
+	printf("第二章37&39题\n");
 	printf("the number of positive = %d\n", num_pos);
 	printf("the number of negative = %d\n", num_neg);
 	printf("the sum of these 10 signed data = %d\n", result_s);
@@ -94,7 +94,7 @@ int main() {
 			mov		num_neg_32, edx
 			add		esp, 16
 	}
-	printf("38\n");
+	printf("第二章38题\n");
 	printf("the number of positive_16 = %d\n", num_pos_16);
 	printf("the number of negative_16 = %d\n", num_neg_16);
 	printf("the number of positive_32 = %d\n", num_pos_32);
@@ -135,13 +135,13 @@ int main() {
 			
 	}
 
-	printf("38\n");
+	printf("第二章40题\n");
 	printf("|sum_odd:%d - sum_even:%d| = %d\n\n", sum_odd, sum_even, sub_result);
 
 	//---------------------------------------------------------------------------------
 	unsigned input_1, count_0_bit, count_1_bit;
 	printf("--------part2------------------\n\n");
-	printf("35\n");
+	printf("第三章35题\n");
 	printf("please input a unsigned data:");
 	scanf_s("%u", &input_1);
 
@@ -175,7 +175,7 @@ int main() {
 
 	char charac1 = 0, charac2 = 0;
 	short data_merge_from_2_character;
-	printf("36.\n");
+	printf("第三章36题.\n");
 	printf("please input 2 character:");
 	getchar();
 	scanf("%d%d", &charac1, &charac2);
@@ -219,7 +219,7 @@ int main() {
 	printf("data merged from character %XH and charcter %XH = %04XH\n", 0xff&charac1, 0xff&charac2, 0xffff&data_merge_from_2_character);
 
 	int int_input_37_1, int_input_37_2;
-	printf("37.\n");
+	printf("第三章37题.\n");
 	printf("please input 2 int number:");
 	scanf("%x%x", &int_input_37_1, &int_input_37_2);
 
@@ -247,7 +247,7 @@ int main() {
 
 	char string_1[100];
 	int num_of_elphabat, num_of_number, num_of_other_type;
-	printf("38.\n");
+	printf("第三章38题.\n");
 	printf("please input a string:");
 	scanf("%s", string_1);
 	int num_of_char = strlen(string_1);
@@ -319,7 +319,7 @@ int main() {
 			jb		TL1lty039
 	}
 
-	printf("39.\n");
+	printf("第三章39题.\n");
 	printf("the reversed string is:%s\n", string_1);
 
 	system("pause");
