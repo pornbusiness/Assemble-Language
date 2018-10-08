@@ -90,6 +90,42 @@ int main() {
 	}
 
 	printf("%s\n", stra);
+
+	char str1[100], str2[100];
+	int loc;
+
+	printf("输入两个字符串，以空格分隔:");
+	scanf("%s %s", str1, str2);
+
+	_asm {
+			lea			esi, str1
+			lea			edi, str2
+			mov			ecx, esi
+			;
+		TL1lty020_THROU_STR1:
+			cmp[esi], 0
+			je			TN2lty020_ENDOF_STR1
+			lodsb
+		TL2lty020_THROU_STR2:
+			cmp[edi], 0
+			je			TN3lty020_ENDOF_STR2
+			scasb
+			je			TN1lty020_FOUND
+			jmp			TL2lty020_THROU_STR2
+			;
+		TN3lty020_ENDOF_STR2:
+			lea			edi, str2
+			jmp			TL1lty020_THROU_STR1
+		TN2lty020_ENDOF_STR1:
+			mov			loc, -1
+			jmp			TN4lty020_OVER
+		TN1lty020_FOUND:
+			sub			esi, ecx
+			mov			loc, esi
+		TN4lty020_OVER:
+	}
+
+	printf("第一个出现在str2中的字符位于str1的位置%d\n", loc);
 	
 
 	system("pause");
