@@ -1,0 +1,6 @@
+﻿  code.c
+d:\github-repository\assemble-language\mylab\161630318-刘听宇-lab1\161630318-刘听宇-lab1\code.c(326): warning C4731: “main”: 框架指针寄存器“ebp”被内联程序集代码修改
+d:\github-repository\assemble-language\mylab\161630318-刘听宇-lab1\161630318-刘听宇-lab1\code.c(439): warning C4731: “main”: 框架指针寄存器“ebp”被内联程序集代码修改
+d:\github-repository\assemble-language\mylab\161630318-刘听宇-lab1\161630318-刘听宇-lab1\code.c(446): warning C4731: “main”: 框架指针寄存器“ebp”被内联程序集代码修改
+d:\github-repository\assemble-language\mylab\161630318-刘听宇-lab1\161630318-刘听宇-lab1\code.c(489): warning C4731: “main”: 框架指针寄存器“ebp”被内联程序集代码修改
+  161630318-刘听宇-Lab1.vcxproj -> D:\Github-repository\Assemble-Language\myLab\161630318-刘听宇-Lab1\Debug\161630318-刘听宇-Lab1.exe

@@ -1,4 +1,4 @@
 ﻿  code.c
-d:\github-repository\assemble-language\myhomework\03-161630318-刘听宇-thirdwork\code.c(136): warning C4731: “main”: 框架指针寄存器“ebp”被内联程序集代码修改
-d:\github-repository\assemble-language\myhomework\03-161630318-刘听宇-thirdwork\code.c(161): warning C4731: “main”: 框架指针寄存器“ebp”被内联程序集代码修改
+d:\github-repository\assemble-language\myhomework\03-161630318-刘听宇-thirdwork\code.c(137): warning C4731: “main”: 框架指针寄存器“ebp”被内联程序集代码修改
+d:\github-repository\assemble-language\myhomework\03-161630318-刘听宇-thirdwork\code.c(162): warning C4731: “main”: 框架指针寄存器“ebp”被内联程序集代码修改
   03-161630318-刘听宇-thirdWork.vcxproj -> D:\Github-repository\Assemble-Language\myHomework\03-161630318-刘听宇-thirdWork\Debug\03-161630318-刘听宇-thirdWork.exe
